@@ -1,5 +1,6 @@
 const http = require('http');
 const fs = require('fs');
+const _ = require('lodash');
 
 //method for creating server
 // const server = http.createServer((req, res) => {
@@ -9,7 +10,18 @@ const fs = require('fs');
 
 //request obj
 const server = http.createServer((req, res) => {
-    console.log(req.url, req.method);
+    // console.log(req.url, req.method);
+
+    // lodash
+    const num = _.random(0,20);
+    console.log(num);
+
+    //run function only once
+    const greet = _.once(() => {
+        console.log('hello');
+    });
+    greet();
+
 
     //routing 
     let path = './clientServer/views/';
